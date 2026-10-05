@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuantumMed Parkinson's | ThunderStars SIH 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="nav">
+    <div class="brand">
+      <div class="atom"><span></span></div>
+      <div>
+        <div class="brand-title">QUANTUM<span>MED</span></div>
+        <div class="brand-sub">ThunderStars • SIH 2026</div>
+      </div>
+    </div>
+    <nav>
+      <button data-scroll="overview">Overview</button>
+      <button data-scroll="multimodal">Assessment</button>
+      <button data-scroll="benchmarks">Validation</button>
+      <button data-scroll="quantum">Quantum Core</button>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">
+        <span class="theme-icon" id="themeIcon">☾</span><span id="themeLabel">Dark</span>
+      </button>
+      <div class="engine-chip" id="engineChip"><i></i><span>Dataset check…</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badges">
+        <span class="active-module-badge">WORKING PROTOTYPE</span><span>4 SIGNAL BRANCHES</span><span>HYBRID QML</span>
+      </div>
+      <div class="eyebrow">QUANTUMMED • RESEARCH SCREENING PLATFORM</div>
+      <h1>Hybrid Quantum ML for<br><span>Neurodegenerative Screening</span></h1>
+      <p>
+        One explainable screening workflow for voice, gait, handwriting and EEG — with a quantum-enhanced voice pathway.
+      </p>
+      <div class="hero-actions">
+        <button class="primary" id="startBtn">Run integrated assessment</button>
+        <button class="secondary" id="trainBtn">Initialize QML engine</button>
+      </div>
+      <div class="hero-metrics">
+        <div><strong id="samplesStat">—</strong><span>voice recordings</span></div>
+        <div><strong id="subjectsStat">—</strong><span>voice participants</span></div>
+        <div><strong id="featuresStat">—</strong><span>voice biomarkers</span></div>
+        <div><strong>4</strong><span>active signal branches</span></div>
+      </div>
+      <div class="validation-highlight hidden" id="validationHighlight"></div>
+    </section>
+
+    <section class="panel overview-panel" id="overview">
+      <div class="section-head compact">
+        <div>
+          <div class="eyebrow">SYSTEM AT A GLANCE</div>
+          <h2>Four signals. One assessment.</h2>
+          <p>Each branch is evaluated independently, then combined only at decision level.</p>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <article class="info-card">
+          <div class="info-icon">01</div>
+          <h3>Biomedical inputs</h3>
+          <p><strong>Voice, gait, handwriting and resting-state EEG</strong> are handled as separate signal pathways with modality-specific derived features.</p>
+          <span class="card-note">Diagnosis/status labels are never entered as inference features.</span>
+        </article>
+        <article class="info-card">
+          <div class="info-icon">02</div>
+          <h3>Branch models</h3>
+          <p>Voice uses RF + VQC + fidelity-kernel QSVM; gait uses RBF-SVM; handwriting uses Random Forest; EEG uses Logistic Regression.</p>
+          <span class="card-note">The quantum circuit is concentrated in the compact voice representation.</span>
+        </article>
+        <article class="info-card">
+          <div class="info-icon">03</div>
+          <h3>Late fusion</h3>
+          <p>Available branch scores are weighted by research validation ROC-AUC above chance and renormalized before producing the Multimodal Pattern Index.</p>
+          <span class="card-note">The fused index is not a calibrated disease probability.</span>
+        </article>
+        <article class="info-card">
+          <div class="info-icon">04</div>
+          <h3>One integrated result</h3>
+          <p>QuantumMed produces one overall Pattern Index, while individual signal scores and contributions remain supporting evidence.</p>
+          <span class="card-note">Research decision support only — never a standalone diagnosis.</span>
+        </article>
+      </div>
+
+      <div class="audience-wrap">
+        <div class="audience-copy">
+          <div class="eyebrow">INTENDED EVALUATION USERS</div>
+          <h3>Who would use this platform?</h3>
+          <p>Designed for supervised research and screening workflows — not unsupervised consumer self-diagnosis.</p>
+        </div>
+        <div class="audience-grid">
+          <div><strong>Clinical & neurology research teams</strong><span>Prioritize participants for further assessment in screening studies.</span></div>
+          <div><strong>Telehealth / remote-screening pilots</strong><span>Combine whichever supported digital-signal measurements are available and route concerning patterns for clinical review.</span></div>
+          <div><strong>ML / QML research teams</strong><span>Compare the voice quantum models with classical baselines and inspect how independently validated branches contribute to late fusion.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel multimodal-panel" id="multimodal">
+      <div class="section-head compact">
+        <div>
+          <div class="eyebrow">INTEGRATED PARKINSON'S SCREENING ASSESSMENT</div>
+          <h2>Load patient signals. Run one assessment.</h2>
+          <p>Use any supported signal combination. Each modality keeps its own input container, while QuantumMed returns one integrated result and one report.</p>
+        </div>
+      </div>
+
+      <div class="case-loader">
+        <div>
+          <strong>Need a quick demonstration?</strong>
+          <span>Load real cohort examples into the same visible input containers used by the assessment.</span>
+        </div>
+        <div class="case-loader-actions">
+          <button class="ghost" id="mmControlBtn">Load Control Example</button>
+          <button class="ghost" id="mmPdBtn">Load Parkinson's Example</button>
+          <button class="ghost danger-quiet" id="mmClearBtn">Clear Inputs</button>
+        </div>
+      </div>
+
+      <div class="mm-selector" aria-label="Select available modalities">
+        <div class="mm-selector-copy">
+          <strong>Available patient signals</strong>
+          <span>Uncheck a modality if that measurement is unavailable. Only checked signals enter the final assessment.</span>
+        </div>
+        <div class="mm-check-grid">
+          <label class="mm-check"><input type="checkbox" name="mmModality" value="voice" checked><span><b>Voice</b><small>Acoustic biomarker vector</small></span></label>
+          <label class="mm-check"><input type="checkbox" name="mmModality" value="gait" checked><span><b>Gait</b><small>Derived sensor feature vector</small></span></label>
+          <label class="mm-check"><input type="checkbox" name="mmModality" value="handwriting" checked><span><b>Handwriting</b><small>Spiral / meander feature vector</small></span></label>
+          <label class="mm-check"><input type="checkbox" name="mmModality" value="eeg" checked><span><b>EEG</b><small>Resting-state spectral feature vector</small></span></label>
+        </div>
+      </div>
+
+      <div class="assessment-input-workspace">
+        <div class="input-workspace-head">
+          <div>
+            <div class="eyebrow">PATIENT INPUT WORKSPACE</div>
+            <h3>Provide the measurements you actually have</h3>
+          </div>
+          <span class="input-format-note">Current web input: feature JSON / CSV • Voice also supports direct editing</span>
+        </div>
+
+        <div class="signal-input-grid">
+          <article class="signal-input-card" data-input-card="voice">
+            <div class="signal-input-head">
+              <div><span class="signal-kicker">VOICE</span><h4>Acoustic biomarkers</h4></div>
+              <span class="input-state empty" id="state-voice">No input</span>
+            </div>
+            <p>22 sustained-phonation measurements used by the hybrid RF + VQC + QSVM voice branch.</p>
+            <div class="signal-input-actions">
+              <label class="file-button">Upload JSON / CSV<input type="file" id="file-voice" accept=".json,.csv,text/csv,application/json"></label>
+              <button class="ghost mini-action" data-format-help="voice">Format</button>
+            </div>
+            <textarea id="input-voice" class="feature-editor" spellcheck="false" placeholder='Paste a JSON object, e.g. {"MDVP:Fo(Hz)":119.99, "...":0.0}'></textarea>
+            <div class="input-preview"><span id="count-voice">0 features loaded</span><span>Editable</span></div>
+          </article>
+
+          <article class="signal-input-card" data-input-card="gait">
+            <div class="signal-input-head">
+              <div><span class="signal-kicker">GAIT</span><h4>Sensor-derived gait features</h4></div>
+              <span class="input-state empty" id="state-gait">No input</span>
+            </div>
+            <p>Force, timing, asymmetry and center-of-pressure measurements expected by the trained gait branch.</p>
+            <div class="signal-input-actions">
+              <label class="file-button">Upload JSON / CSV<input type="file" id="file-gait" accept=".json,.csv,text/csv,application/json"></label>
+              <button class="ghost mini-action" data-format-help="gait">Format</button>
+            </div>
+            <textarea id="input-gait" class="feature-editor" spellcheck="false" placeholder="Paste the gait feature vector as JSON, or upload a one-row feature CSV."></textarea>
+            <div class="input-preview"><span id="count-gait">0 features loaded</span><span>65-feature model input</span></div>
+          </article>
+
+          <article class="signal-input-card" data-input-card="handwriting">
+            <div class="signal-input-head">
+              <div><span class="signal-kicker">HANDWRITING</span><h4>Motor-dynamics features</h4></div>
+              <span class="input-state empty" id="state-handwriting">No input</span>
+            </div>
+            <p>Aggregated spiral and meander measurements expected by the trained handwriting branch.</p>
+            <div class="signal-input-actions">
+              <label class="file-button">Upload JSON / CSV<input type="file" id="file-handwriting" accept=".json,.csv,text/csv,application/json"></label>
+              <button class="ghost mini-action" data-format-help="handwriting">Format</button>
+            </div>
+            <textarea id="input-handwriting" class="feature-editor" spellcheck="false" placeholder="Paste the handwriting feature vector as JSON, or upload a one-row feature CSV."></textarea>
+            <div class="input-preview"><span id="count-handwriting">0 features loaded</span><span>36-feature model input</span></div>
+          </article>
+
+          <article class="signal-input-card" data-input-card="eeg">
+            <div class="signal-input-head">
+              <div><span class="signal-kicker">EEG</span><h4>Resting-state spectral features</h4></div>
+              <span class="input-state empty" id="state-eeg">No input</span>
+            </div>
+            <p>Relative band-power and spectral measurements expected by the trained resting-state EEG branch.</p>
+            <div class="signal-input-actions">
+              <label class="file-button">Upload JSON / CSV<input type="file" id="file-eeg" accept=".json,.csv,text/csv,application/json"></label>
+              <button class="ghost mini-action" data-format-help="eeg">Format</button>
+            </div>
+            <textarea id="input-eeg" class="feature-editor" spellcheck="false" placeholder="Paste the EEG feature vector as JSON, or upload a one-row feature CSV."></textarea>
+            <div class="input-preview"><span id="count-eeg">0 features loaded</span><span>343 derived EEG features</span></div>
+          </article>
+        </div>
+
+        <div class="assessment-runbar">
+          <div>
+            <strong id="inputReadyTitle">No patient inputs loaded yet</strong>
+            <span id="inputReadyText">Load an example or provide at least one checked signal.</span>
+          </div>
+          <button class="primary run-integrated" id="mmRunBtn">Run Integrated Assessment</button>
+        </div>
+
+        <p class="mm-selector-note"><strong>Input scope:</strong> the current trained web models consume derived feature vectors. Raw voice/audio, handwriting images and full raw EEG/gait acquisition adapters are a separate preprocessing layer and should not be represented as directly supported until those adapters are integrated.</p>
+      </div>
+
+      <div class="mm-method-note">
+        <strong>One backend pipeline:</strong> modality-specific models run internally, then available signal scores are combined by validation-weighted late fusion into one final Pattern Index.
+      </div>
+
+      <div class="mm-empty" id="mmEmpty">
+        Your final integrated assessment will appear here after you load or enter patient signal values and press <strong>Run Integrated Assessment</strong>.
+      </div>
+
+      <div class="mm-result hidden" id="mmResult">
+        <div class="mm-summary">
+          <div class="mm-index"><strong id="mmScore">—</strong><span>/100</span></div>
+          <div>
+            <div class="eyebrow">FINAL INTEGRATED PATTERN INDEX</div>
+            <h3 id="mmBand">—</h3>
+            <p id="mmScope">—</p>
+            <div class="mm-summary-chips">
+              <span class="mini-chip">Modality agreement: <b id="mmAgreement">—</b></span>
+              <span class="mini-chip">Evaluated: <b id="mmCoverage">—</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mm-meta-grid">
+          <div><span>Selected signals</span><strong id="mmSelectedNames">—</strong></div>
+          <div><span>Fusion method</span><strong>Validation-weighted late fusion</strong></div>
+          <div><span>Assessment ID</span><strong id="mmAssessmentId">—</strong></div>
+        </div>
+
+        <div class="mm-table-wrap">
+          <table class="benchmark-table mm-table">
+            <thead><tr><th>Supporting signal</th><th>Internal model</th><th>Signal index</th><th>Validation ROC-AUC</th><th>Contribution</th></tr></thead>
+            <tbody id="mmBranchBody"></tbody>
+          </table>
+        </div>
+        <div class="mm-interpretation-box">
+          <span>ASSESSMENT INTERPRETATION</span>
+          <p id="mmInterpretation">—</p>
+        </div>
+        <p class="footnote" id="mmFusionNote"></p>
+        <div class="mm-disclaimer"><strong>Research-use limitation:</strong> <span id="mmDisclaimer">—</span></div>
+        <div class="mm-result-actions">
+          <button class="primary" id="mmReportBtn">Generate Final Assessment Report</button>
+          <button class="ghost" id="mmJsonBtn">Download Assessment JSON</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="benchmarks">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">VALIDATION</div>
+          <h2>Voice Quantum vs Classical Benchmark</h2>
+          <p id="splitNote">This table evaluates the voice/QML pathway on its participant-separated holdout. Gait, handwriting and EEG validation metrics are shown in the multimodal branch table.</p>
+        </div>
+      </div>
+      <div class="validation-cards">
+        <div><span>Held-out recordings</span><strong id="testSamplesStat">—</strong><small>not used for model fitting</small></div>
+        <div><span>Held-out participants</span><strong id="testSubjectsStat">—</strong><small>participant separation enforced</small></div>
+        <div><span>Best held-out accuracy</span><strong id="bestAccuracyStat">—</strong><small id="bestAccuracyModel">initialize engine</small></div>
+        <div><span>Auxiliary UPDRS module</span><strong id="severityGateStat">—</strong><small id="severityGateSmall">validation gate pending</small></div>
+      </div>
+      <div class="benchmark-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>Accuracy</th><th>Sensitivity</th><th>Specificity</th><th>F1</th><th>ROC-AUC</th></tr>
+          </thead>
+          <tbody id="benchmarkBody"><tr><td colspan="6">Initialize the QML engine to calculate metrics.</td></tr></tbody>
+        </table>
+      </div>
+      <div class="voice-validation-provenance">
+        <div>
+          <span>Voice dataset</span>
+          <strong id="datasetName">-</strong>
+        </div>
+        <div>
+          <span>Target</span>
+          <strong id="targetDefinition">status: control=0 / Parkinson's cohort=1</strong>
+        </div>
+        <div>
+          <span>Evaluation split</span>
+          <strong id="splitStrategy">-</strong>
+        </div>
+        <div>
+          <span>Missing-value policy</span>
+          <strong>Training-split median imputation</strong>
+        </div>
+      </div>
+      <p class="footnote">Metrics are computed on the current participant-separated holdout. The cohort is small; these are research-demo results and not external clinical validation.</p>
+    </section>
+
+    <section class="two-col quantum-core-layout" id="quantum">
+      <div class="panel quantum-visual-panel">
+        <div class="eyebrow">VOICE QUANTUM CORE</div>
+        <h2>4-Qubit Hybrid Quantum Pathway</h2>
+        <p class="quantum-intro">Four selected voice biomarkers are scaled to [0, &pi;], angle-encoded and processed through two trainable variational layers with ring entanglement.</p>
+
+        <div class="quantum-circuit-visual" aria-label="Simplified four-qubit variational circuit">
+          <div class="circuit-column-heads" aria-hidden="true">
+            <span></span><span>Encode</span><span>Layer 1</span><span>CNOT ring</span><span>Layer 2</span><span>Readout</span>
+          </div>
+          <div class="q-row"><span class="q-label">q0</span><span class="q-gate encode">H + RY(x0)</span><span class="q-gate train">RY / RZ</span><span class="q-gate entangle">q0 &rarr; q1</span><span class="q-gate train">RY / RZ</span><span class="q-gate measure">&lt;Z&gt;</span></div>
+          <div class="q-row"><span class="q-label">q1</span><span class="q-gate encode">H + RY(x1)</span><span class="q-gate train">RY / RZ</span><span class="q-gate entangle">q1 &rarr; q2</span><span class="q-gate train">RY / RZ</span><span class="q-gate measure">&lt;Z&gt;</span></div>
+          <div class="q-row"><span class="q-label">q2</span><span class="q-gate encode">H + RY(x2)</span><span class="q-gate train">RY / RZ</span><span class="q-gate entangle">q2 &rarr; q3</span><span class="q-gate train">RY / RZ</span><span class="q-gate measure">&lt;Z&gt;</span></div>
+          <div class="q-row"><span class="q-label">q3</span><span class="q-gate encode">H + RY(x3)</span><span class="q-gate train">RY / RZ</span><span class="q-gate entangle">q3 &rarr; q0</span><span class="q-gate train">RY / RZ</span><span class="q-gate measure">&lt;Z&gt;</span></div>
+        </div>
+
+        <div class="quantum-summary-chips"><span><b>4</b> qubits</span><span><b>2</b> variational layers</span><span>Angle encoding</span><span>Pauli-Z readout</span></div>
+      </div>
+
+      <div class="panel quantum-config-panel">
+        <div class="eyebrow">QUANTUM CONFIGURATION</div>
+        <h2>Inside the Voice QML Branch</h2>
+        <p class="quantum-config-lead">The quantum core strengthens the Voice branch internally. The user still receives one integrated assessment and one final report.</p>
+        <div class="quantum-config-list">
+          <div><span>Quantum input</span><strong>4 selected voice biomarkers</strong></div>
+          <div><span>Feature map</span><strong>[0, &pi;] angle encoding</strong></div>
+          <div><span>Variational gates</span><strong>Trainable RY / RZ rotations</strong></div>
+          <div><span>Entanglement</span><strong>CNOT ring across all 4 qubits</strong></div>
+          <div><span>Quantum models</span><strong>VQC + Fidelity-Kernel QSVM</strong></div>
+          <div><span>Execution</span><strong>PennyLane &middot; default.qubit simulator</strong></div>
+        </div>
+        <div class="quantum-feature-box"><span>Selected quantum biomarkers</span><strong id="selectedFeatures">Calculated during training</strong></div>
+        <div class="quantum-role-note"><b>Role in QuantumMed</b><span>Quantum inference remains an internal component of the Voice signal branch; it does not produce a separate user-facing assessment.</span></div>
+      </div>
+    </section>
+
+    <section class="panel platform-scope-panel" id="platform-scope">
+      <div class="section-head compact">
+        <div>
+          <div class="eyebrow">PLATFORM SCOPE</div>
+          <h2>Modular biomedical signal architecture</h2>
+          <p>All four signal branches are working in the current prototype. Voice contains the quantum submodule, while gait, handwriting and EEG use classical branch models; their independently validated outputs meet only at the late-fusion layer.</p>
+        </div>
+      </div>
+      <div class="module-grid">
+        <article class="module-card active"><div class="module-status">ACTIVE</div><div class="module-icon">◉</div><h3>Voice biomarkers</h3><p>195 sustained-phonation recordings with 22 acoustic features drive the RF + VQC + fidelity-kernel QSVM pathway.</p><span>Participant-separated holdout • QSVM ROC-AUC 1.000</span></article>
+        <article class="module-card active"><div class="module-status">ACTIVE</div><div class="module-icon">↟</div><h3>Gait signals</h3><p>165 participants are represented by 65 force, timing, asymmetry and center-of-pressure features for an RBF-SVM branch.</p><span>Participant-separated holdout • ROC-AUC 0.882</span></article>
+        <article class="module-card active"><div class="module-status">ACTIVE</div><div class="module-icon">≈</div><h3>EEG signals</h3><p>144 resting-state EEG participants produce spectral band-power features for a Logistic Regression branch.</p><span>5-fold participant-level CV • ROC-AUC 0.721</span></article>
+        <article class="module-card active"><div class="module-status">ACTIVE</div><div class="module-icon">✎</div><h3>Handwriting dynamics</h3><p>92 exam-level samples combine spiral and meander motor features in a Random Forest branch.</p><span>5-fold exam-level CV • ROC-AUC 0.905</span></article>
+      </div>
+    </section>
+
+    <section class="panel deployment-panel" id="deployment">
+      <div class="section-head compact">
+        <div>
+          <div class="eyebrow">HOW IT WOULD BE USED</div>
+          <h2>From biomedical signals to qualified review</h2>
+          <p>A supervised research workflow connects available signal measurements, modality-specific processing, branch inference, late fusion and qualified review.</p>
+        </div>
+      </div>
+      <div class="deployment-flow">
+        <div><span>1</span><strong>Acquire</strong><p>Collect any supported measurement: sustained voice features, gait sensor data, handwriting dynamics or resting-state EEG.</p></div>
+        <div><span>2</span><strong>Process</strong><p>Apply modality-specific feature extraction and training-fitted preprocessing without injecting diagnostic labels.</p></div>
+        <div class="current"><span>3</span><strong>Assess & fuse</strong><p>Run the appropriate branch models and combine available outputs with validation-weighted late fusion.</p></div>
+        <div><span>4</span><strong>Review</strong><p>Interpret the pattern index, agreement and branch contributions as research decision support and escalate when appropriate.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>ThunderStars • Smart India Hackathon 2026</strong>
+    <span>Research screening prototype. Not intended to replace neurological evaluation or clinical diagnosis.</span>
+  </footer>
+
+  <div class="overlay hidden" id="loadingOverlay">
+    <div class="loading-card">
+      <div class="loading-brand"><span class="loading-mark">Q</span><div><strong>QuantumMed Engine</strong><small>Local research initialization</small></div></div>
+      <div class="loader-row"><div class="loader"></div><div><h3 id="loadingTitle">Training hybrid models…</h3><p id="loadingText">Preparing the participant-separated pipeline</p></div></div>
+      <div class="init-only hidden" id="initOnly">
+        <div class="init-meta"><span>Initialization sequence</span><strong id="initElapsed">00:00</strong></div>
+        <div class="init-progress"><i id="initProgress"></i></div>
+        <div class="init-steps" id="initSteps">
+          <div data-stage="0"><b>01</b><span>Load dataset & create participant-separated holdout</span></div>
+          <div data-stage="1"><b>02</b><span>Fit classical baseline models</span></div>
+          <div data-stage="2"><b>03</b><span>Optimize 4-qubit variational circuit</span></div>
+          <div data-stage="3"><b>04</b><span>Build fidelity-kernel QSVM</span></div>
+          <div data-stage="4"><b>05</b><span>Evaluate holdout metrics & safety gates</span></div>
+        </div>
+        <small class="init-note">The backend trains synchronously; this panel visualizes the pipeline order while initialization runs. Typical local runtime is about 1–2 minutes.</small>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
